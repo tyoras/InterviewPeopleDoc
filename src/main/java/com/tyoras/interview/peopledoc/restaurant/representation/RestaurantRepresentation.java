@@ -2,30 +2,25 @@ package com.tyoras.interview.peopledoc.restaurant.representation;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Immutable Restaurant representation
+ * @author yoan
+ */
 public class RestaurantRepresentation {
-	private long id;
 
-    @Length(max = 3)
-    private String content;
+    @Length(max = 50)
+    private final String restaurant;
 
-    public RestaurantRepresentation() {
-        // Jackson deserialization
+    @JsonCreator
+    public RestaurantRepresentation(@JsonProperty("restaurant") String name) {
+        this.restaurant = name;
     }
 
-    public RestaurantRepresentation(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
-
-    @JsonProperty
-    public long getId() {
-        return id;
-    }
-
-    @JsonProperty
-    public String getContent() {
-        return content;
+    @JsonProperty("restaurant")
+    public String getRestaurant() {
+        return restaurant;
     }
 }

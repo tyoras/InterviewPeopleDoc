@@ -1,35 +1,25 @@
 package com.tyoras.interview.peopledoc.infra;
 
 import io.dropwizard.Configuration;
+import io.dropwizard.db.DataSourceFactory;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RestaurantChooserConfiguration extends Configuration {
-	@NotEmpty
-    private String template;
+	@Valid
+    @NotNull
+    private DataSourceFactory database = new DataSourceFactory();
 
-    @NotEmpty
-    private String defaultName = "Stranger";
-
-    @JsonProperty
-    public String getTemplate() {
-        return template;
+	@JsonProperty("database")
+    public void setDataSourceFactory(DataSourceFactory factory) {
+        this.database = factory;
     }
 
-    @JsonProperty
-    public void setTemplate(String template) {
-        this.template = template;
-    }
-
-    @JsonProperty
-    public String getDefaultName() {
-        return defaultName;
-    }
-
-    @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
+    @JsonProperty("database")
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
     }
 }

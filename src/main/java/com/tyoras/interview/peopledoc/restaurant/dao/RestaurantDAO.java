@@ -7,7 +7,7 @@ import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
-import com.tyoras.interview.peopledoc.restaurant.Restaurant;
+import com.tyoras.interview.peopledoc.restaurant.representation.Restaurant;
 
 @RegisterMapper(RestaurantMapper.class)
 public interface RestaurantDAO {

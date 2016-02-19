@@ -10,7 +10,6 @@ import io.dropwizard.setup.Environment;
 import org.skife.jdbi.v2.DBI;
 
 import com.tyoras.interview.peopledoc.restaurant.dao.RestaurantDAO;
-import com.tyoras.interview.peopledoc.restaurant.health.RestaurantHealthCheck;
 import com.tyoras.interview.peopledoc.restaurant.resource.RestaurantResource;
 
 public class RestaurantChooserApplication extends Application<RestaurantChooserConfiguration> {
